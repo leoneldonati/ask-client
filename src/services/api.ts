@@ -13,6 +13,7 @@ class Api {
           'Access-Control-Allow-Origin': import.meta.env.VITE_CLIENT_HOST
         },
         body: payload,
+        mode: 'cors'
       });
 
       
