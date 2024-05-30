@@ -1,0 +1,22 @@
+.login {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+  justify-content: center;
+  padding: var(--padding_boxes);
+
+}
+
+.login_h1 {
+  font-size: 1em;
+
+  & > span {
+    color: var(--color_accent);
+  }
+}
+
+.login_h2 {
+  font-size: 1em;
+  margin-bottom: 2em;
+}

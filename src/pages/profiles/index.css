@@ -1,0 +1,85 @@
+.profile {
+  background-color: var(--color_boxes);
+  min-height: calc(100vh - 90px);
+  padding: 1em;
+  display: grid;
+  grid-template-areas: 
+  "avatar info"
+  "posts posts"
+  ;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 300px 1fr;
+  gap: 1em;
+}
+.profile_avatar {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 100%;
+  aspect-ratio: 4/4;
+  object-fit: cover;
+  grid-area: avatar;
+}
+.profile_container--info {
+  grid-area: info;
+  display: flex;
+  flex-flow: column;
+  align-items: start;
+  justify-content: space-evenly;
+  .profile_container--name {
+    width: 100%;  
+
+    & > h1 {
+
+    }
+
+    & > span {
+      font-style: italic;
+      color: rgba(0, 0, 0 ,.9);
+    }
+  }
+  .profile_ul--dates {
+
+    & > li {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+
+      & > svg {
+        width: 20px;
+        height: auto;
+        margin-right: 4px;
+      }
+    }
+
+  }
+  .profile_container--socials {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    & > span { 
+      position: relative;
+
+      & > svg {
+        width: 35px;
+        height: auto;
+      } 
+
+      & > strong {
+        position: absolute;
+        bottom: -5px;
+        text-shadow: 0 0 .4em var(--color_accent);
+      }
+    }
+  }
+}
+
+.profile_container--posts {
+  grid-area: posts;
+  border: 1px solid;
+  max-height: inherit;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+}

@@ -1,0 +1,80 @@
+.signup_form {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 1em;
+  padding: var(--padding_boxes);
+  
+  & > label {
+    width: 100%;
+  }
+  & input {
+    width: 100%;
+    padding: .8em;
+    font-size: 1.1em;
+    border-radius: var(--border_size);
+  }
+}
+.signup_form--avatar {
+  position: relative;
+  border: 1px solid var(--color_accent);
+  border-radius: 100%;
+  max-width: 90px;
+  min-height: 90px;
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--color_accent);
+  overflow: hidden;
+  display: flex;
+  
+  & > svg {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 30px;
+    height: auto;
+    filter: drop-shadow(0 0 20px #333);
+  }
+
+  & > .avatar_image {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+  }
+}
+.signup_form--info {
+  display: flex;
+  gap: .4em;
+}
+.signup_form--email {}
+.signup_form--password {}
+.signup_form--bio {
+  resize: none;
+  width: 100%;
+  min-height: 100px;
+  border-radius: var(--border_size);
+}
+.signup_form--date {}
+.signup_form--button {
+  font-size: 1.1em;
+  padding: .8em .9em;
+  border: 1px solid var(--color_accent);
+  border-radius: var(--border_size);
+  cursor: pointer;
+  box-shadow: 0 0 6px var(--color_shadow);
+  background-color: var(--color_accent);
+  color: #fff;
+
+  transition: transform .2s ease;
+
+
+  &:hover {
+    transform: scale(.98);
+  }
+  &:active {
+    transform: scale(1.05);
+  }
+}
