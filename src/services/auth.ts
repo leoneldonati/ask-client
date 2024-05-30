@@ -37,7 +37,6 @@ async function signup(
   payload: FormData
 ): Promise<{ ok: boolean; client: ClientData | null; error?: unknown }> {
 
-  console.log(payload);
   try {
     const res = await post(
       `/${apiVersion}/auth?type=signup`,
