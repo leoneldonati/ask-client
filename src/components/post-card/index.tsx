@@ -20,6 +20,9 @@ export default function PostCard({ post }: { post: Post }) {
 
   const files = JSON.parse(post?.files);
 
+  const haveImage = files !== null && files[0].id !== null;
+  const haveMultipleImages = files.length > 1;
+
   return (
     <article className="post">
       {/* 
@@ -38,7 +41,9 @@ export default function PostCard({ post }: { post: Post }) {
             {!client.isVerified ? <IconCheck className="icon_check" /> : null}
           </p>
           <p>
-            <Link to={`/profiles/${post.owner.id}`}><small>@{post.owner.username}</small></Link>
+            <Link to={`/profiles/${post.owner.id}`}>
+              <small>@{post.owner.username}</small>
+            </Link>
           </p>
         </div>
 
@@ -82,26 +87,24 @@ export default function PostCard({ post }: { post: Post }) {
       </p>
 
       <div className="post_images">
-        {files.length > 1 ? (
-          <Carrousel images={files} />
-        ) : (
+        {haveImage && haveMultipleImages && <Carrousel images={files} />}
+        {!haveImage ? null : (
           <img
             src={files[0].secure_url}
-            alt="Post image"
+            alt={haveImage ? "Post image" : ''}
             loading="lazy"
             className="single_img"
           />
         )}
       </div>
 
-      <hr />
-
       <div
-      style={{
-        padding: '.6em 0',
-        display: 'flex',
-        alignItems: 'center'
-      }}
+        style={{
+          padding: ".6em 0",
+          display: "flex",
+          alignItems: "center",
+          borderTop: '1px solid var(--color_boxes)'
+        }}
       >
         <div className="post_buttons">
           <button id="like">

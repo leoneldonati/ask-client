@@ -7,7 +7,7 @@
   background-color: var(--color_boxes);
   display: flex;
   flex-flow: column;
-
+  justify-content: space-between;
   @media (width <= 500px) {
     font-size: .85em;
   }
@@ -91,7 +91,6 @@
     max-width: 100%;
     height: auto;
     border-radius: var(--border_size);
-    margin-bottom: 3em;
   }
 
 }
