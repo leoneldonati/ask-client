@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column;
   overflow: hidden;
-  height: calc(100vh - 74px);
+  height: calc(100vh - 91px);
 }
 .feed_container--posts {
   max-height: calc(100vh - 90px);
