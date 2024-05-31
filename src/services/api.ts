@@ -9,6 +9,9 @@ class Api {
       const res = await fetch(this.domain + endpoint, {
         method: "POST",
         credentials: "include",
+        headers: {
+          'Access-Control-Allow-Origin': import.meta.env.VITE_CLIENT_HOST
+        },
         body: payload,
       });
 
