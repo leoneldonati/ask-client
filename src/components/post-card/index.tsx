@@ -41,14 +41,14 @@ export default function PostCard({ post }: { post: Post }) {
             {!client.isVerified ? <IconCheck className="icon_check" /> : null}
           </p>
           <p>
-            <Link to={`/profiles/${post.owner.id}`}>
+            <Link to={`/profiles/${post.owner.id}`} replace>
               <small>@{post.owner.username}</small>
             </Link>
           </p>
         </div>
 
         <img
-          src={JSON.parse(post.owner.avatar as string).secureUrl.secureUrl}
+          src={JSON.parse(client!.avatar).optimized.secureUrl}
           alt={"@" + client.username}
           title={"@" + client.username}
           loading="lazy"

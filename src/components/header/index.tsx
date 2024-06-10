@@ -29,7 +29,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link className="header_link" to={`/profiles/${user?.id}`}>
+            <Link className="header_link" to={`/profiles/${user?.id}`} reloadDocument>
               <IconUser />
             </Link>
           </li>
@@ -39,9 +39,9 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <button className="header_link">
+            <button className="header_link avatar" >
               <Avatar
-                src={isAuth ? JSON.parse(user!.avatar).secureUrl.secureUrl : ""}
+                src={isAuth ? JSON.parse(user!.avatar).optimized.secureUrl : ""}
                 alt={isAuth ? user!.name : "Login or sign up!"}
                 isVerified={isAuth && user!.isVerified}
               />

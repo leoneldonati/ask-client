@@ -1,11 +1,12 @@
 import { IconFilePlus, IconX } from "@tabler/icons-react";
 import "./index.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { usePostsStore } from "../../stores/posts";
 
 export default function PostForm({ setToggle }: {setToggle: React.Dispatch<React.SetStateAction<boolean>>}) {
   const [selectedImage, setSelectedImage] = useState<string[]>([]);
   const { addPost, loading } = usePostsStore(state => state);
+  const form = useRef()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -16,8 +17,8 @@ export default function PostForm({ setToggle }: {setToggle: React.Dispatch<React
     await addPost(form);
 
     setToggle(false)
-    setSelectedImage([])
-    e.currentTarget?.reset()
+    setSelectedImage(() => [])
+    form.set('content', '')
   };
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,7 +44,7 @@ export default function PostForm({ setToggle }: {setToggle: React.Dispatch<React
   const hasMultipleImages = selectedImage.length > 1;
   const hasImages = selectedImage.length > 0;
   return (
-    <form className="post_form" onSubmit={handleSubmit}>
+    <form className="post_form" onSubmit={handleSubmit} ref={form.current}>
       <label htmlFor="content">
         <span>Explain yourself</span>
         <textarea name="content" id="content"></textarea>
@@ -118,7 +119,11 @@ export default function PostForm({ setToggle }: {setToggle: React.Dispatch<React
           pointerEvents: loading ? 'none' : 'auto'
         }}
       >
-        Post
+        {
+          loading
+          ? 'Posting...'
+          : 'Post'
+        }
       </button>
     </form>
   );

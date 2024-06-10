@@ -19,6 +19,7 @@ export default function App() {
   }, [])
   return (
     <main className="main">
+      
       <Header />
 
       <div className="main_container--pages">

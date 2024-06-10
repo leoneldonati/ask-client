@@ -34,6 +34,15 @@
   }
 
 }
+.header_link .avatar {
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--color_accent);
+  display: block;
+  transition: transform .1s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  &:hover {
+    transform: scale(1.08);
+  }
+}
 .header_link > svg {
   width: 30px;
   height: auto;

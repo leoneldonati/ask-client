@@ -18,7 +18,6 @@ export default function Login() {
     if (!email || !password || email === "" || password === "") return;
 
     const loginResponse = await login(form);
-
     if (!loginResponse.ok) {
       return setAuth({
         isAuth: false,

@@ -1,20 +1,10 @@
-.avatar_container {
-  position: relative;
-}
 .avatar {
   aspect-ratio: 4 / 4;
   object-fit: cover;
   object-position: center;
-  max-width: 50px;
+  width: 100%;
+  max-width: 55px;
   height: auto;
   border-radius: 100%;
   border: transparent 2px solid;
-}
-
-.check {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-  filter: drop-shadow(0 0 2px #796701)
 }

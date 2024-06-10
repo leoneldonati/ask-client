@@ -17,7 +17,7 @@ export const usePostsStore = create<PostStore>((set, get) => ({
   loading: false,
   setAction: ({ posts, loading }) => set({ posts, loading }),
   addPost: async (payload) => {
-    set({ loading: false });
+    set({ loading: true });
     try {
       const { status } = await post(`/${apiVersion}/posts`, payload);
 
@@ -33,7 +33,7 @@ export const usePostsStore = create<PostStore>((set, get) => ({
     }
   },
   getPosts: async (q = 15) => {
-    set({ loading: false });
+    set({ loading: true });
     try {
       const { status, data } = await getFn(`/${apiVersion}/posts?q=${q}`);
 
